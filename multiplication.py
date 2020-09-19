@@ -2,15 +2,16 @@
 import time
 #timing decorator
 def timeit(func):
-    def wrapper(*args):
+    def wrapper(a,b):
         start=time.time()
-        result=func(*args)
+        result=func(a,b)
         stop=time.time()
+       
         return  stop-start
     return wrapper 
 
 # 3rd grade algo
-@timeit
+
 def brutemultiplication(a,b):
     l=[]
     z=0
@@ -41,12 +42,17 @@ def brutemultiplication(a,b):
    # print(l)
 
     return sum(l)
+@timeit
+def third_grade(a,b):
+    r=brutemultiplication(a,b)
+    return r
+
     
     
 #print(brutemultiplication(259,3))
 #karatsuba multiplication
 import random
-@timeit
+
 def karatsuba(x,y):
     if len(str(x))==1 or len(str(y))==1:
   
@@ -75,16 +81,15 @@ def karatsuba(x,y):
 
 
     return (one*(10**(m*2)))+(four*(10**m))+two
-
-print(karatsuba(123,13))
-print(brutemultiplication(123,13))
-
-# random inputs
+@timeit
+def karatsuba_algo(a,b):
+    r=karatsuba(a,b)
+    return r
 inputs=[]
-import random
+
 min=1
 max=9
-for i in range(25):
+for i in range(50):
     min=int(str(min)+('0'*i))
     max=int(str(max)+('9'*i))
     inputs.append((random.randint(min,max),random.randint(min,max)))
@@ -92,12 +97,10 @@ for i in range(25):
 bmt=[]
 kmt=[]
 for i in inputs:
-    bmt.append(brutemultiplication(i[0],i[1]))
-    kmt.append(karatsuba(i[0],i[1]))
+    bmt.append(third_grade(i[0],i[1]))
+    kmt.append(karatsuba_algo(i[0],i[1]))
 #graphing
 import matplotlib.pyplot as plt
-plt.plot([i for i in range(1,26)],bmt,'b')#blue graph for 3rd grade algo
-plt.plot([i for i in range(1,26)],kmt,'r')#red for karatsuba algo
+plt.plot([i for i in range(1,51)],bmt,'b')#blue graph for 3rd grade algo
+plt.plot([i for i in range(1,51)],kmt,'r')#red for karatsuba algo
 plt.show()
-    
-
