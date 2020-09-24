@@ -42,6 +42,7 @@ def brutemultiplication(a,b):
    # print(l)
 
     return sum(l)
+#timing the algo,calling the main fuction inside other because of recurrsion
 @timeit
 def third_grade(a,b):
     r=brutemultiplication(a,b)
@@ -81,6 +82,7 @@ def karatsuba(x,y):
 
 
     return (one*(10**(m*2)))+(four*(10**m))+two
+#timing the algo,calling the main fuction inside other because of recurrsion
 @timeit
 def karatsuba_algo(a,b):
     r=karatsuba(a,b)
