@@ -12,16 +12,15 @@ def timeit(func):
 
 
 def mergesort(a):
+    fh=[]
+    sh=[]
     #base case,comparing 2 elements
-    if len(a)==2:
-        if a[0]>a[1]:
-            return [a[1],a[0]]
-        else:
-            return [a[0],a[1]]
+    if len(a)==1:
+        return a
 #dividing into sub problems
-    if len(a)>2:
-        fh=a[:(len(a)//2)]
-        sh=a[(len(a)//2):]
+    if len(a)>1:
+        fh.extend(a[:(len(a)//2)])
+        sh.extend(a[(len(a)//2):])
     sfh=mergesort(fh)
     ssh=mergesort(sh)
    
