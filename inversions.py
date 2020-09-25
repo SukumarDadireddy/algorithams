@@ -14,7 +14,7 @@ def inversions(a):
     i=0
     j=0
     output=[]
-    oi=0
+ 
 #merging
     no_of_inv=fni+sni
     while i<len(sfh) and j<len(ssh):
@@ -25,7 +25,6 @@ def inversions(a):
             output.append(ssh[j])
             j=j+1
             no_of_inv=no_of_inv+(len(sfh)-i)
-        oi=oi+1
     if len(sfh)==i:
         output.extend(ssh[j:])
     else:
